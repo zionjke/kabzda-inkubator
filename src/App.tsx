@@ -3,6 +3,7 @@ import './App.css';
 import {Accordion} from './components/Accordion/Accordion';
 import {PageTitle} from "./components/PageTitle";
 import {Rating} from './components/Rating';
+import {Switcher} from "./components/Switcher/Switcher";
 
 
 function App() {
@@ -29,7 +30,12 @@ function App() {
             <Accordion visible={visibleUserList}
                        handleClickVisible={handleClickVisibleUserList}
                        title={'This is Users List'}/>
+            <Rating value={1}/>
+            <Rating value={2}/>
             <Rating value={3}/>
+            <Rating value={4}/>
+            <Rating value={0}/>
+            <Switcher/>
         </div>
     );
 }
