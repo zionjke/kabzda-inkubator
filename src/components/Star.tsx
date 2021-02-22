@@ -1,14 +1,12 @@
-// @flow
 import * as React from 'react';
 
 type Props = {
     selected?: boolean
+    onClick: any
 };
-export const Star = ({selected}: Props) => {
+export const Star = ({selected, onClick}: Props) => {
     console.log('Star render');
     return (
-        selected
-            ? <span><b>Star </b> </span>
-            : <span>Star </span>
+        <span onClick={onClick} className={selected ? 'starSelected' : 'star'}>Star</span>
     );
 };

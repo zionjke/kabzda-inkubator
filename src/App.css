@@ -42,3 +42,14 @@
 .green {
     background: green;
 }
+
+.star {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.starSelected {
+    font-weight: bold;
+    margin-right: 10px;
+    cursor: pointer;
+}

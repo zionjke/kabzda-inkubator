@@ -1,19 +1,23 @@
-// @flow
 import * as React from 'react';
 import {Star} from "./Star";
+import {useState} from "react";
 
 type Props = {
-    value: number
+    stars: number
 };
-export const Rating = ({value}: Props) => {
+
+export const Rating = ({stars}: Props) => {
+    const [starSelected, setStarSelected] = useState(0);
     console.log('Rating render');
     return (
         <div>
-            <Star selected={value > 0}/>
-            <Star selected={value > 1}/>
-            <Star selected={value > 2}/>
-            <Star selected={value > 3}/>
-            <Star selected={value > 4}/>
+            {
+                [...Array(stars)].map((s, i) => (
+                    <Star key={i}
+                          selected={i < starSelected}
+                          onClick={() => setStarSelected(i + 1)}/>
+                ))
+            }
         </div>
     )
 };

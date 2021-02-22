@@ -6,7 +6,7 @@ import {useState} from "react";
 type Props = {};
 
 export const Switcher = (props: Props) => {
-    const [switcher, setSwitcher] = useState<boolean>(true);
+    const [switcher, setSwitcher] = useState<boolean>(false);
     return (
         <div className='switcher_container'>
             <div className='switcher'>
