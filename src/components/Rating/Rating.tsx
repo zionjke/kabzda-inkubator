@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Star} from "./Star";
+import {Star} from "../Star";
 import {useState} from "react";
 
 type Props = {
