@@ -4,17 +4,18 @@ import {AccordionBody} from './AccordionBody';
 import {AccordionTitle} from "./AccordionTitle";
 
 
-type Props = {
+export type ControledAccordionProps = {
     title: string,
     handleClickVisible: () => void,
     visible:boolean
+    color?: string
 };
-export const ControledAccordion = ({title,visible,handleClickVisible}: Props) => {
+export const ControledAccordion = ({title,visible,handleClickVisible,color}: ControledAccordionProps) => {
 
     console.log('Accordion render');
     return (
         <div>
-            <AccordionTitle handleClickVisible={handleClickVisible} title={title}/>
+            <AccordionTitle color={color} handleClickVisible={handleClickVisible} title={title}/>
             {
                 visible && <AccordionBody/>
             }
