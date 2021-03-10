@@ -6,14 +6,14 @@ import {Rating} from './components/Rating/Rating';
 import {Switcher} from "./components/Switcher/Switcher";
 import {ControledAccordion} from "./components/Accordion/ControledAccordion";
 import {ControledSwitcher} from "./components/Switcher/ControledSwitcher";
-import {ControleedRating} from "./components/Rating/ControleedRating";
+import {ControledRating} from "./components/Rating/ControledRating";
 
 
 function App() {
 
     const [visible, setVisible] = useState(true)
     const [switcher, setSwitcher] = useState<boolean>(false);
-    const [starSelected, setStarSelected] = useState(0);
+    const [starSelected, setStarSelected] = useState<number>(4);
 
     const handleClickVisible = () => {
         setVisible(!visible)
@@ -28,7 +28,7 @@ function App() {
                                 title={'This is Menu'}/>
             <Accordion title={'This is Users List'}/>
             <Rating stars={5}/>
-            <ControleedRating starSelected={starSelected }
+            <ControledRating starSelected={starSelected}
                               setStarSelected={setStarSelected}
                               stars={7}/>
             <ControledSwitcher switcher={switcher}
