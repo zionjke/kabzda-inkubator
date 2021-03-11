@@ -29,8 +29,8 @@ function App() {
             <Accordion title={'This is Users List'}/>
             <Rating stars={5}/>
             <ControledRating starSelected={starSelected}
-                              setStarSelected={setStarSelected}
-                              stars={7}/>
+                             setStarSelected={setStarSelected}
+                             stars={7}/>
             <ControledSwitcher switcher={switcher}
                                setSwitcher={setSwitcher}/>
             <Switcher/>

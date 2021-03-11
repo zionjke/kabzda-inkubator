@@ -23,6 +23,7 @@ MenuCollapsed.args = {
     title: 'Collapsed',
     visible: false,
     handleClickVisible: action('menu collapsed or uncollapsed'),
+    color: ''
 }
 
 export const MenuUnCollapsed = Template.bind({})
