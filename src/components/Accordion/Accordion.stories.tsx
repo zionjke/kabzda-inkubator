@@ -33,8 +33,15 @@ MenuUnCollapsed.args = {
     handleClickVisible: action('menu collapsed or uncollapsed')
 }
 
+const onClickCallback = action('some item was clicked')
+
 
 export const Menu = () => {
     const [visible, setVisible] = useState(true)
-    return <ControledAccordion title={'Menu'} handleClickVisible={() => setVisible(!visible)} visible={visible}/>
+    return <ControledAccordion onItemClick={onClickCallback} items={[
+        {title: 'First Item', value: 1},
+        {title: 'Second Item', value: 2},
+        {title: 'Third Item', value: 3},
+        {title: 'Four Item', value: 4}
+    ]} title={'Menu'} handleClickVisible={() => setVisible(!visible)} visible={visible}/>
 }

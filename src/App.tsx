@@ -7,13 +7,22 @@ import {Switcher} from "./components/Switcher/Switcher";
 import {ControledAccordion} from "./components/Accordion/ControledAccordion";
 import {ControledSwitcher} from "./components/Switcher/ControledSwitcher";
 import {ControledRating} from "./components/Rating/ControledRating";
+import {ItemType} from "./types/types";
+import {CustomSelect} from "./components/Select/CustomSelect";
 
 
 function App() {
-
+    const [items, setItems] = useState<Array<ItemType>>([
+        {title: 'First Item', value: 1},
+        {title: 'Second Item', value: 2},
+        {title: 'Third Item', value: 3},
+        {title: 'Four Item', value: 4}
+    ])
     const [visible, setVisible] = useState(true)
     const [switcher, setSwitcher] = useState<boolean>(false);
     const [starSelected, setStarSelected] = useState<number>(4);
+    const [itemValue, setItemValue] = useState<any>()
+    const [selectItemValue, setSelectItemValue] = useState<any>()
 
     const handleClickVisible = () => {
         setVisible(!visible)
@@ -24,16 +33,21 @@ function App() {
         <div className="App">
             <PageTitle title={'This is App component'}/>
             <ControledAccordion visible={visible}
+                                items={items}
                                 handleClickVisible={handleClickVisible}
+                                onItemClick={setItemValue}
                                 title={'This is Menu'}/>
-            <Accordion title={'This is Users List'}/>
-            <Rating stars={5}/>
+            {/*<Rating stars={5}/>*/}
             <ControledRating starSelected={starSelected}
                              setStarSelected={setStarSelected}
                              stars={7}/>
             <ControledSwitcher switcher={switcher}
                                setSwitcher={setSwitcher}/>
-            <Switcher/>
+            {/*<Switcher/>*/}
+            <CustomSelect items={items}
+                          selectItemValue={selectItemValue}
+                          onSelectClick={setSelectItemValue}/>
+
         </div>
     );
 }

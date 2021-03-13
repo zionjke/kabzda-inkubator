@@ -20,9 +20,7 @@ export const Accordion = ({title}: Props) => {
     return (
         <div>
             <AccordionTitle handleClickVisible={handleClickVisible} title={title}/>
-            {
-                visible && <AccordionBody/>
-            }
+
         </div>
     );
 };
