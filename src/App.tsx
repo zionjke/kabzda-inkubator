@@ -8,7 +8,7 @@ import {ControledAccordion} from "./components/Accordion/ControledAccordion";
 import {ControledSwitcher} from "./components/Switcher/ControledSwitcher";
 import {ControledRating} from "./components/Rating/ControledRating";
 import {ItemType} from "./types/types";
-import {CustomSelect} from "./components/Select/CustomSelect";
+import {Select} from "./components/Select/Select";
 
 
 function App() {
@@ -44,9 +44,9 @@ function App() {
             <ControledSwitcher switcher={switcher}
                                setSwitcher={setSwitcher}/>
             {/*<Switcher/>*/}
-            <CustomSelect items={items}
-                          selectItemValue={selectItemValue}
-                          onSelectClick={setSelectItemValue}/>
+            <Select items={items}
+                    selectItemValue={selectItemValue}
+                    onSelectClick={setSelectItemValue}/>
 
         </div>
     );

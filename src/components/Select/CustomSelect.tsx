@@ -2,22 +2,24 @@ import * as React from 'react';
 import {ItemType} from "../../types/types";
 
 type Props = {
+    value?: any
     items: Array<ItemType>
-    selectItemValue: any
-    onSelectClick: (value: any) => void
+    onChange: (value: any) => void
 };
-export const CustomSelect: React.FC<Props> = ({items,selectItemValue,onSelectClick}) => {
+export const CustomSelect: React.FC<Props> = ({items, value, onChange}) => {
+
+    const selectedItem = items.find(item => item.value === value)
+
     return (
         <div>
-            <select value={selectItemValue} onChange={(e) => onSelectClick(e.currentTarget.value)}>
-                {
-                    items.map((item, i) => (
-                        <option key={i} value={item.value}>{item.title}</option>
-                    ))
-                }
-            </select>
-            <span> value: {selectItemValue}</span>
+            <h3>{selectedItem && selectedItem.title}</h3>
+            {
+                items.map(item => (
+                    <div  key={item.value}>
+                        {item.title}
+                    </div>
+                ))
+            }
         </div>
-
     );
 };
