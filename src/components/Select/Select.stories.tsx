@@ -22,19 +22,12 @@ export const TestSelect = () => {
 }
 
 export const SelectWithValue = () => {
+    const [activeValue,setActiveValue] = useState('Second Item')
     return <CustomSelect items={[{title: 'First Item', value: 1},
         {title: 'Second Item', value: 2},
         {title: 'Third Item', value: 3},
         {title: 'Four Item', value: 4}]}
-                         onChange={action('value changed')}
-                         value={2}/>
+                         onChange={setActiveValue}
+                         value={activeValue}/>
 }
 
-export const SelectWithOutValue = () => {
-    return <CustomSelect items={[{title: 'First Item', value: 1},
-        {title: 'Second Item', value: 2},
-        {title: 'Third Item', value: 3},
-        {title: 'Four Item', value: 4}]}
-                         onChange={action('value changed')}
-    />
-}
