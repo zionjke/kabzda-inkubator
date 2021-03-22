@@ -47,6 +47,7 @@ function App() {
             <Select items={items}
                     selectItemValue={selectItemValue}
                     onSelectClick={setSelectItemValue}/>
+            <Accordion title={'Test'}/>
 
         </div>
     );
