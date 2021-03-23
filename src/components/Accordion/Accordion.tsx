@@ -1,29 +1,19 @@
-// @flow
 import * as React from 'react';
 import {AccordionBody} from './AccordionBody';
 import {AccordionTitle} from "./AccordionTitle";
 import {useReducer, useState} from "react";
-import {action} from "@storybook/addon-actions";
+import {reducer, TOGGLE_VISIBLE} from './reducer';
+
 
 type Props = {
     title: string,
 };
 
-type ActionType = {
-    type: string
-}
-
-const reducer = (state: boolean, action: ActionType) => {
-    if (action.type === 'TOGGLE-VISIBLE') {
-        return !state
-    }
-    return state
-}
 
 export const Accordion = ({title}: Props) => {
 
     // const [visible, setVisible] = useState(true)
-    const [visible, dispatch] = useReducer(reducer, false)
+    const [state, dispatch] = useReducer(reducer, {visible: false})
 
 
     // const handleClickVisible = () => {
@@ -31,7 +21,7 @@ export const Accordion = ({title}: Props) => {
     // }
 
     const handleClickVisible = () => {
-        dispatch({type: 'TOGGLE-VISIBLE'})
+        dispatch({type: TOGGLE_VISIBLE})
     }
 
     console.log('Accordion render');
@@ -40,7 +30,7 @@ export const Accordion = ({title}: Props) => {
             {/*<AccordionTitle handleClickVisible={handleClickVisible} title={title}/>*/}
             <AccordionTitle handleClickVisible={handleClickVisible} title={title}/>
             {
-                visible && <AccordionBody items={[{title: '1', value: '1'}]} onItemClick={() => alert('yo')}/>
+                state.visible && <AccordionBody items={[{title: '1', value: '1'}]} onItemClick={() => alert('yo')}/>
             }
         </div>
     );
